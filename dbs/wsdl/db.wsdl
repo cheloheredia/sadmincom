@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://127.0.0.1:26/db/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="db" targetNamespace="http://127.0.0.1:26/db/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://127.0.0.1:26/db/">
+      <xsd:element name="buscarrevistaentradas"
+      	type="tns:buscarrevistaentradas">
+
+      </xsd:element>
+      <xsd:element name="resquery" type="tns:resquery">
+
+      </xsd:element>
+
+      <xsd:complexType name="buscarrevistaentradas">
+      	<xsd:attribute name="revista" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="resquery">
+      	<xsd:sequence>
+      		<xsd:element name="matriz" type="tns:filas"
+      			maxOccurs="unbounded" minOccurs="0">
+      		</xsd:element>
+      	</xsd:sequence>
+      	<xsd:attribute name="error" type="xsd:int"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="filas">
+      	<xsd:sequence>
+      		<xsd:element name="columnas" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="buscarpaisautosuggestentradas"
+      	type="tns:buscarpaisentradas">
+      </xsd:element>
+      <xsd:element name="buscarpaisautosuggestResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarpaisentradas">
+      	<xsd:attribute name="pais" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="buscarcuidadautosuggestentradas"
+      	type="tns:buscarcuidadentradas">
+      </xsd:element>
+      <xsd:element name="buscarcuidadautosuggestResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarcuidadentradas">
+      	<xsd:attribute name="cuidad" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="pais" type="xsd:int"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="buscarpaisentradas"
+      	type="tns:buscarpaisentradas">
+      </xsd:element>
+      <xsd:element name="buscarpaisResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:element name="buscarcuidadentradas"
+      	type="tns:buscarcuidadentradas">
+      </xsd:element>
+      <xsd:element name="buscarcuidadsalidascuidadResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+      <xsd:element name="registrarprospectoentradas"
+      	type="tns:registrarprospectoentradas">
+      </xsd:element>
+      <xsd:element name="res" type="tns:res"></xsd:element>
+
+      <xsd:complexType name="registrarprospectoentradas">
+      	<xsd:attribute name="nombre" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="apellido" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="email" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="cuidad" type="xsd:int"></xsd:attribute>
+
+      	<xsd:attribute name="fecha" type="xsd:dateTime"></xsd:attribute>
+      </xsd:complexType>
+
+      <xsd:complexType name="res">
+      	<xsd:attribute name="res" type="xsd:int"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="buscartsuscripcionentradas"
+      	type="tns:buscartsuscripcionentradas">
+      </xsd:element>
+      <xsd:element name="buscartprospectoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscartsuscripcionentradas">
+      	<xsd:attribute name="tipo" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="buscarprospectoentradas"
+      	type="tns:buscarprospectoentradas">
+      </xsd:element>
+      <xsd:element name="buscarprospectoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarprospectoentradas">
+      	<xsd:attribute name="nombre" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="apellido" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="cuidad" type="xsd:int"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="actualizarprospectoentradas"
+      	type="tns:actualizarprospectoentradas">
+      </xsd:element>
+      <xsd:element name="actualizarprospectoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="actualizarprospectoentradas">
+      	<xsd:attribute name="prospecto" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="nombre" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="apellido" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="email" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="cuidad" type="xsd:int"></xsd:attribute>
+
+      </xsd:complexType>
+      <xsd:element name="buscarsuscripcionentradas"
+      	type="tns:buscarsuscripcionentradas">
+      </xsd:element>
+      <xsd:element name="buscarsuscripcionResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarsuscripcionentradas">
+      	<xsd:attribute name="prospecto" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="revista" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="tipo" type="xsd:int"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="insertarsuscripcionentradas"
+      	type="tns:insertarsuscripcionentradas">
+      </xsd:element>
+      <xsd:element name="insertarsuscripcionResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+        
+      <xsd:complexType name="insertarsuscripcionentradas">
+      	<xsd:attribute name="prospecto" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="revista" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="tipo" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="fecha" type="xsd:dateTime"></xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="buscarrevistaRequest">
+    <wsdl:part element="tns:buscarrevistaentradas" name="buscarrevistaentradas"/>
+  </wsdl:message>
+  <wsdl:message name="buscarrevistaResponse">
+    <wsdl:part element="tns:resquery" name="buscarrevistasalidas"/>
+  </wsdl:message>
+  <wsdl:message name="buscarpaisautosuggestRequest">
+  	<wsdl:part name="buscarpaisautosuggestentradas" element="tns:buscarpaisautosuggestentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarpaisautosuggestResponse">
+  	<wsdl:part name="buscarpaisautosuggestsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarcuidadautosuggestRequest">
+  	<wsdl:part name="buscarcuidadautosuggestentradas" element="tns:buscarcuidadautosuggestentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarcuidadautosuggestResponse">
+  	<wsdl:part name="buscarcuidadautosuggestsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarpaisRequest">
+  	<wsdl:part name="buscarpaisentradas" element="tns:buscarpaisentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarpaisResponse">
+  	<wsdl:part name="buscarpaissalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarcuidadRequest">
+  	<wsdl:part name="buscarcuidadentradas" element="tns:buscarcuidadentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarcuidadResponse">
+  	<wsdl:part name="buscarcuidadsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrarprospectoRequest">
+  	<wsdl:part name="registrarprospectoentradas" element="tns:registrarprospectoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrarprospectoResponse">
+  	<wsdl:part name="registrarprospectosalidas" element="tns:res"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscartsuscripcionRequest">
+  	<wsdl:part name="buscartsuscripcionentradas" element="tns:buscartsuscripcionentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscartsuscripcionResponse">
+  	<wsdl:part name="buscartsuscripcionsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarprospectoRequest">
+  	<wsdl:part name="buscarprospectoentradas" element="tns:buscarprospectoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarprospectoResponse">
+  	<wsdl:part name="buscarprospectosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actualizarprospectoRequest">
+  	<wsdl:part name="actualizarprospectoentradas" element="tns:actualizarprospectoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="actualizarprospectoResponse">
+  	<wsdl:part name="actualizarprospectosalidas" element="tns:res"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarsuscripcionRequest">
+  	<wsdl:part name="buscarsuscripcionentradas" element="tns:buscarsuscripcionentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarsuscripcionResponse">
+  	<wsdl:part name="buscarsuscripcionsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertarsuscripcionRequest">
+  	<wsdl:part name="insertarsuscripcionentradas" element="tns:insertarsuscripcionentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertarsuscripcionResponse">
+  	<wsdl:part name="insertarsuscripcionsalidas" element="tns:res"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="db">
+    <wsdl:operation name="buscarrevista">
+      <wsdl:input message="tns:buscarrevistaRequest"/>
+      <wsdl:output message="tns:buscarrevistaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="buscarpais">
+    	<wsdl:input message="tns:buscarpaisRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarpaisResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarcuidad">
+    	<wsdl:input message="tns:buscarcuidadRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarcuidadResponse"></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="registrarprospecto">
+    	<wsdl:input message="tns:registrarprospectoRequest"></wsdl:input>
+    	<wsdl:output message="tns:registrarprospectoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscartsuscripcion">
+    	<wsdl:input message="tns:buscartsuscripcionRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscartsuscripcionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarprospecto">
+    	<wsdl:input message="tns:buscarprospectoRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarprospectoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarprospecto">
+    	<wsdl:input message="tns:actualizarprospectoRequest"></wsdl:input>
+    	<wsdl:output message="tns:actualizarprospectoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarsuscripcion">
+    	<wsdl:input message="tns:buscarsuscripcionRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarsuscripcionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarsuscripcion">
+    	<wsdl:input message="tns:insertarsuscripcionRequest"></wsdl:input>
+    	<wsdl:output message="tns:insertarsuscripcionResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dbSOAP" type="tns:db">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="buscarrevista">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarrevista" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+
+  	<wsdl:operation name="buscarpais">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarpais" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarcuidad">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarcuidad" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarrevista">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarrevista" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="registrarprospecto">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/registrarprospecto" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscartsuscripcion">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscartsuscripcion" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarprospecto">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarprospecto" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="actualizarprospecto">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/actualizarprospecto" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarsuscripcion">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarsuscripcion" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="insertarsuscripcion">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/insertarsuscripcion" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="db">
+    <wsdl:port binding="tns:dbSOAP" name="dbSOAP">
+      <soap:address location="http://127.0.0.1:24/db/server.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
