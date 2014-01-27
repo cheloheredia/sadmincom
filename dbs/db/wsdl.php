@@ -35,164 +35,12 @@ class filas {
 
 }
 
-class buscarrevistaentradas {
+class buscarprotagonistaentradas {
 
     /**
      * @var string
      */
-    public $revista;
-
-}
-
-class buscarpais {
-
-    /**
-     * @var string
-     */
-    public $pais;
-
-}
-
-class buscarcuidadentradas {
-
-    /**
-     * @var int
-     */
-    public $pais;
-
-    /**
-     * @var string
-     */
-    public $cuidad;
-
-}
-
-class registrarprospectoentradas {
-
-    /**
-     * @var int
-     */
-    public $cuidad;
-
-    /**
-     * @var string
-     */
-    public $nombre;
-
-    /**
-     * @var string
-     */
-    public $apellido;
-
-    /**
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @var datetime
-     */
-    public $fecha;
-
-}
-
-class buscarprospectoentradas {
-
-    /**
-     * @var int
-     */
-    public $cuidad;
-
-    /**
-     * @var string
-     */
-    public $nombre;
-
-    /**
-     * @var string
-     */
-    public $apellido;
-
-}
-
-class actualizarprospectoentradas {
-
-    /**
-     * @var int
-     */
-    public $prospecto;
-
-    /**
-     * @var string
-     */
-    public $nombre;
-
-    /**
-     * @var string
-     */
-    public $apellido;
-
-    /**
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @var int
-     */
-    public $cuidad;
-
-}
-
-class buscartsuscripcionentradas {
-
-    /**
-     * @var string
-     */
-    public $tipo;
-
-}
-
-class buscarsuscripcionentradas {
-
-    /**
-     * @var int
-     */
-    public $prospecto;
-
-    /**
-     * @var int
-     */
-    public $revista;
-
-    /**
-     * @var int
-     */
-    public $tipo;
-
-}
-
-class insertarsuscripcionentradas {
-
-    /**
-     * @var int
-     */
-    public $prospecto;
-
-    /**
-     * @var int
-     */
-    public $revista;
-
-    /**
-     * @var int
-     */
-    public $tipo;
-
-    /**
-     * @var datetime
-     */
-    public $fecha;
+    public $protagonista;
 
 }
 
@@ -203,14 +51,6 @@ $classMap = array(
 	'res' => 'res',
 	'resquery' => 'resquery',
 	'filas' => 'filas',
-    'buscarrevistaentradas' => 'buscarrevistaentradas',
-    'buscarpais' => 'buscarpais',
-    'buscarcuidadentradas' => 'buscarcuidadentradas',
-    'registrarprospectoentradas' => 'registrarprospectoentradas',
-    'buscarprospectoentradas' => 'buscarprospectoentradas',
-    'actualizarprospectoentradas' => 'actualizarprospectoentradas',
-    'buscartsuscripcionentradas' => 'buscartsuscripcionentradas',
-    'buscarsuscripcionentradas' => 'buscarsuscripcionentradas',
-    'insertarsuscripcionentradas' => 'insertarsuscripcionentradas'
+    'buscarprotagonistaentradas' => 'buscarprotagonistaentradas'
 );
 
