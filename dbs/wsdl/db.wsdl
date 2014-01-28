@@ -54,6 +54,35 @@
       <xsd:complexType name="buscartmediotodoentreadas">
       	<xsd:sequence></xsd:sequence>
       </xsd:complexType>
+      <xsd:element name="buscartmedioentradas"
+      	type="tns:buscartmedioentradas">
+      </xsd:element>
+      <xsd:element name="buscartmedioResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscartmedioentradas">
+      	<xsd:attribute name="tmedio" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="buscarmediotmedioentradas"
+      	type="tns:buscarmediotmedioentradas">
+      </xsd:element>
+      <xsd:element name="buscarmediotmedioResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarmediotmedioentradas">
+      	<xsd:attribute name="tmedio" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="medio" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -74,6 +103,18 @@
   <wsdl:message name="buscartmediotodoResponse">
   	<wsdl:part name="buscartmediotodosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscartmedioRequest">
+  	<wsdl:part name="buscartmedioentradas" element="tns:buscartmedioentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscartmedioResponse">
+  	<wsdl:part name="buscartmediosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarmediotmedioRequest">
+  	<wsdl:part name="buscarmediotmedioentradas" element="tns:buscarmediotmedioentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarmediotmedioResponse">
+  	<wsdl:part name="buscarmediotmediosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -86,6 +127,14 @@
     <wsdl:operation name="buscartmediotodo">
     	<wsdl:input message="tns:buscartmediotodoRequest"></wsdl:input>
     	<wsdl:output message="tns:buscartmediotodoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscartmedio">
+    	<wsdl:input message="tns:buscartmedioRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscartmedioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarmediotmedio">
+    	<wsdl:input message="tns:buscarmediotmedioRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarmediotmedioResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -119,8 +168,34 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="buscartmediotodo">
+
   		<soap:operation
   			soapAction="http://127.0.0.1:26/db/buscartmediotodo" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscartmedio">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscartmedio" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarmediotmedio">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarmediotmedio" />
   		<wsdl:input>
   			<soap:body use="literal" />
   		</wsdl:input>

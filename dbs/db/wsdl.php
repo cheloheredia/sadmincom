@@ -44,6 +44,29 @@ class buscarprotagonistaentradas {
 
 }
 
+class buscartmedioentradas {
+
+    /**
+     * @var string
+     */
+    public $tmedio;
+
+}
+
+class buscarmediotmedioentradas {
+
+    /**
+     * @var int
+     */
+    public $tmedio;
+
+    /**
+     * @var string
+     */
+    public $medio;
+
+}
+
 /**
 * @var array
 */
@@ -51,6 +74,8 @@ $classMap = array(
 	'res' => 'res',
 	'resquery' => 'resquery',
 	'filas' => 'filas',
-    'buscarprotagonistaentradas' => 'buscarprotagonistaentradas'
+    'buscarprotagonistaentradas' => 'buscarprotagonistaentradas',
+    'buscartmedioentradas' => 'buscartmedioentradas',
+    'buscarmediotmedioentradas' => 'buscarmediotmedioentradas'
 );
 
