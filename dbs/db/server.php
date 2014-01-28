@@ -75,7 +75,7 @@ class db {
 	/**
 	* Esta funcion busca protagonista definido en la tabla portagonista.
 	*
-	* @param string $input->protagonista la revista que se desea buscar
+	* @param string $input->protagonista el protagonista que se desea buscar
 	* @return int resquery->error que es 0 cuando no existe un error
 	*		  matriz resquery->matriz que contiene el resultado de la consulta
 	*/
@@ -102,7 +102,7 @@ class db {
 		$this->conexion();
 		$response = new res();
 		if ($this->ejecutarquery("insert into prospecto values('','".$input->nombre."','".$input->apellido."','".
-		    $input->email."',".$input->cuidad.", '".$input->fecha."')")) {
+		    $input->email."',".$input->cuidad.", '".$input->fecha."')"INSERT INTO protagonista(pprotagonista)VALUES ('TUTO QUIROGA');)) {
 			$response->res = 0;
 		} else {
 			$response->res = 1;

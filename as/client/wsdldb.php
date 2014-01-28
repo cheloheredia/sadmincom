@@ -47,10 +47,10 @@ class buscarprotagonistaentradas {
 /**
 * @var array
 */
-$classMap = array(
+$GLOBALS['classMapdb'] = array(
 	'res' => 'res',
-	'resquery' => 'resquery',
-	'filas' => 'filas',
+    'resquery' => 'resquery',
+    'filas' => 'filas',
     'buscarprotagonistaentradas' => 'buscarprotagonistaentradas'
 );
 
