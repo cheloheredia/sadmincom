@@ -52,21 +52,21 @@ class db {
 	*/
 	public function mostrar($query) {
 		$sqlmatriz = new resquery();
-		$sql = $this->ejecutarquery($query);
-		if (pg_num_rows($sql) > 0) {
-			for ($j = 0; $j < pg_num_rows($sql); $j++) {
-				$row = pg_fetch_row($sql);
-				for ($i = 0; $i < pg_num_fields($sql); $i++) {
-					$sqlmatriz->matriz[$j]->columnas[$i] = $row[$i];
+		if ($sql = $this->ejecutarquery($query)) {
+			if (pg_num_rows($sql) > 0) {
+				for ($j = 0; $j < pg_num_rows($sql); $j++) {
+					$row = pg_fetch_row($sql);
+					for ($i = 0; $i < pg_num_fields($sql); $i++) {
+						$sqlmatriz->matriz[$j]->columnas[$i] = $row[$i];
+					}
 				}
+				$sqlmatriz->error = 0;
+				return $sqlmatriz;
+			} else {
+				$sqlmatriz->error = 1;
+				return $sqlmatriz;
 			}
-			$sqlmatriz->error = 0;
-			return $sqlmatriz;
 		} else {
-			$sqlmatriz->error = 1;
-			return $sqlmatriz;
-		}
-		if (pg_num_rows($sql) == -1) {
 			$sqlmatriz->error = -1;
 			return $sqlmatriz;
 		}
@@ -83,6 +83,19 @@ class db {
 		$this->conexion();
 		$response = $this->mostrar("select a.pn, a.pprotagonista from protagonista a where a.pprotagonista like '".
 		                           $input->protagonista."%' limit 10");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca todos los tipos de medios definidos en la tabla tmedio.
+	*
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscartmediotodo($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.tmn, a.tmtipo from tmedio a");
 		$this->desconexion();
 		return $response;
 	}
