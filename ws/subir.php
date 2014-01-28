@@ -17,6 +17,10 @@
 <input type="text" name="titular" id="titular"><br>
 <label for="protagonista">Protagonista:</label>
 <input type="text" name="protagonista" id="protagonista"><br>
+<label for="resumen">Resumen:</label>
+<textarea name="resumen" id="resumen"></textarea><br>
+<label for="tmedio">Tipo Medio:</label>
+<select name="tmedio" id="tmedio"></select><br>
 <label for="textfield">Pais:</label>
 <input type="text" name="pais" id="pais"><br>
 <label for="textfield">Ciudad:</label>

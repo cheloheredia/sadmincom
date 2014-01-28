@@ -11,6 +11,11 @@ var buscarautocompletes = 'client/buscarautocompletes.php';
 /*
  * @var string
  */
+var cargarcombos = 'client/combos.php';
+
+/*
+ * @var string
+ */
 var clienteprospecto = 'client/clienteprospecto.php';
 
 function esEmail(email) {
@@ -69,3 +74,21 @@ function itemSeleccionado(event, ui)
     event.preventDefault();
 }
 
+/**
+* Esta funcion realiza el cargado de combos respectivo.
+*
+* @param string combo el combo que se desea cargar
+* 
+*/
+function cargarCombos(combo){
+    switch(combo){
+        case 'tmedio':
+            $("#tmedio").append("<option> </option>");
+            $.getJSON(cargarcombos+'?combo='+combo,function(data){
+                $.each(data, function(k,v){
+                    $("#tmedio").append("<option>"+v+"</option>");
+                });
+            });
+            break;
+    }
+}

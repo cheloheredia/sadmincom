@@ -14,3 +14,8 @@ $asdir = 'http://127.0.0.1:27';
  */
 $protagonistadir = $asdir.'/wsdl/protagonista.wsdl';
 
+/**
+ * @var string
+ */
+$mediodir = $asdir.'/wsdl/medio.wsdl';
+
