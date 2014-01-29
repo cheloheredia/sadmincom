@@ -23,3 +23,8 @@ $mediodir = $asdir.'/wsdl/medio.wsdl';
  * @var string
  */
 $programadir = $asdir.'/wsdl/programa.wsdl';
+
+/**
+ * @var string
+ */
+$horariodir = $asdir.'/wsdl/horario.wsdl';

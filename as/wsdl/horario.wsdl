@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://127.0.0.1:27/horario/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="horario" targetNamespace="http://127.0.0.1:27/horario/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://127.0.0.1:27/horario/">
+      <xsd:element name="cargarcombohorarioentradas"
+      	type="tns:cargarcombohorarioentradas">
+
+      </xsd:element>
+      <xsd:element name="cargarcombohorariosalidas"
+      	type="tns:cargarcombohorariosalidas">
+
+      </xsd:element>
+
+      <xsd:complexType name="cargarcombohorarioentradas">
+      	<xsd:attribute name="programa" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="cargarcombohorariosalidas">
+      	<xsd:sequence>
+      		<xsd:element name="horario" type="xsd:string"
+      			maxOccurs="unbounded" minOccurs="0">
+      		</xsd:element>
+      	</xsd:sequence>
+      	<xsd:attribute name="error" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="cargarcomboRequest">
+    <wsdl:part element="tns:cargarcombohorarioentradas" name="cargarcombohorarioentradas"/>
+  </wsdl:message>
+  <wsdl:message name="cargarcomboResponse">
+    <wsdl:part element="tns:cargarcombohorariosalidas" name="cargarcombohorariosalidas"/>
+  </wsdl:message>
+  <wsdl:portType name="horario">
+    <wsdl:operation name="cargarcombo">
+      <wsdl:input message="tns:cargarcomboRequest"/>
+      <wsdl:output message="tns:cargarcomboResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="horarioSOAP" type="tns:horario">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="cargarcombo">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:27/horario/cargarcombo" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="horario">
+    <wsdl:port binding="tns:horarioSOAP" name="horarioSOAP">
+      <soap:address location="http://127.0.0.1:27/horario/server.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -81,6 +81,15 @@ $(function()
         select: itemSeleccionado,
         focus: itemMarcado
     });
+    $("#horario").prop('disabled', true);
+    $("#programa").on("autocompleteselect", function(event, ui) {
+        $("#horario").prop('disabled', false);
+        cargarCombos('horario');
+    });
+    $("#programa").on("autocompleteresponse", function(event, ui) {
+        $("#horario").empty();
+        $("#horario").prop('disabled', true);
+    });
     /*var $_GET = obtenerVariablesGet(document.location.search);
     if (typeof($_GET['revista']) != "undefined" && $_GET['revista'] !== null) {
         $("#revista").val($_GET['revista']);

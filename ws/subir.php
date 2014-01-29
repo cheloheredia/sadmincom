@@ -25,8 +25,8 @@
 <input type="text" name="medio" id="medio"><br>
 <label for="programa">Programa:</label>
 <input name="programa" type="text" id="programa"><br>
-<label for="textfield">Revista:</label>
-<input type="text" name="revista" id="revista">
+<label for="horario">Horario:</label>
+<select name="horario" id="horario"></select><br>
 <input type="hidden" name="opt" id="opt" value="respros">
 <input name="enviar" id='enviar' type="button" value="Subir Archivo" /><br>
 </div>

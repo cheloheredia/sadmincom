@@ -102,5 +102,13 @@ function cargarCombos(combo){
                 });
             });
             break;
+        case 'horario':
+            $("#horario").append("<option></option>");
+            $.getJSON(cargarcombos+'?combo='+combo+'&programa='+$('#programa').val(),function(data){
+                $.each(data, function(k,v){
+                    $("#horario").append("<option>"+v+"</option>");
+                });
+            });
+            break;
     }
 }

@@ -107,6 +107,7 @@ class buscarhorarioprogramaentradas {
     public $programa;
 
 }
+
 /**
 * @var array
 */
