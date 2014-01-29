@@ -161,6 +161,36 @@ class db {
 		$this->desconexion();
 		return $response;
 	}
+
+	/**
+	* Esta funcion busca programa definido en la tabla programa.
+	*
+	* @param string $input->programa el programa a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarprograma($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.pron, a.proprograma from programa a where a.proprograma = '".
+		                           $input->programa."'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca horarios de un programa definidos en la tabla horario.
+	*
+	* @param int $input->programa el programa del cual buscar sus horarios
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarhorarioprograma($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.hn, hhorario from horario a, programahorario b where".
+		                           " b.phhorario = a.hn and b.phprograma = ".$input->programa);
+		$this->desconexion();
+		return $response;
+	}
 	/**
 	* Esta funcion inserta un prospecto en la tabla prospecto.
 	*

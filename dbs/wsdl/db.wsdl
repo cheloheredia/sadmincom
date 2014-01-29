@@ -98,6 +98,34 @@
       	<xsd:attribute name="medio" type="xsd:int"></xsd:attribute>
       	<xsd:attribute name="programa" type="xsd:string"></xsd:attribute>
       </xsd:complexType>
+      <xsd:element name="buscarprogramaentradas"
+      	type="tns:buscarprogramaentradas">
+      </xsd:element>
+      <xsd:element name="buscarprogramaResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarprogramaentradas">
+      	<xsd:attribute name="programa" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:element name="buscarhorarioprogramaentradas"
+      	type="tns:buscarhorarioprogramaentradas">
+      </xsd:element>
+      <xsd:element name="buscarhorarioprogramaResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarhorarioprogramaentradas">
+      	<xsd:attribute name="programa" type="xsd:int"></xsd:attribute>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -136,6 +164,18 @@
   <wsdl:message name="buscarprogramamedioResponse">
   	<wsdl:part name="buscarprogramamediosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscarprogramaRequest">
+  	<wsdl:part name="buscarprogramaentradas" element="tns:buscarprogramaentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarprogramaResponse">
+  	<wsdl:part name="buscarprogramasalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarhorarioprogramaRequest">
+  	<wsdl:part name="buscarhorarioprogramaentradas" element="tns:buscarhorarioprogramaentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarhorarioprogramaResponse">
+  	<wsdl:part name="buscarhorarioprogramasalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -160,6 +200,14 @@
     <wsdl:operation name="buscarprogramamedio">
     	<wsdl:input message="tns:buscarprogramamedioRequest"></wsdl:input>
     	<wsdl:output message="tns:buscarprogramamedioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarprograma">
+    	<wsdl:input message="tns:buscarprogramaRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarprogramaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarhorarioprograma">
+    	<wsdl:input message="tns:buscarhorarioprogramaRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarhorarioprogramaResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -232,8 +280,34 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="buscarprogramamedio">
+
   		<soap:operation
   			soapAction="http://127.0.0.1:26/db/buscarprogramamedio" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarprograma">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarprograma" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarhorarioprograma">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarhorarioprograma" />
   		<wsdl:input>
   			<soap:body use="literal" />
   		</wsdl:input>

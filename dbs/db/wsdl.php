@@ -90,6 +90,23 @@ class buscarprogramamedioentradas {
 
 }
 
+class buscarprogramaentradas {
+
+    /**
+     * @var string
+     */
+    public $programa;
+
+}
+
+class buscarhorarioprogramaentradas {
+
+    /**
+     * @var int
+     */
+    public $programa;
+
+}
 /**
 * @var array
 */
@@ -101,6 +118,7 @@ $classMap = array(
     'buscartmedioentradas' => 'buscartmedioentradas',
     'buscarmediotmedioentradas' => 'buscarmediotmedioentradas',
     'buscarmedioentradas' => 'buscarmedioentradas',
-    'buscarprogramamedioentradas' => 'buscarprogramamedioentradas'
+    'buscarprogramamedioentradas' => 'buscarprogramamedioentradas',
+    'buscarhorarioprogramaentradas' => 'buscarhorarioprogramaentradas'
 );
 
