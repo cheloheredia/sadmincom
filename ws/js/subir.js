@@ -52,6 +52,35 @@ $(function()
         select: itemSeleccionado,
         focus: itemMarcado
     });
+    $("#programa").prop('disabled', true);
+    $("#medio").on("autocompleteselect", function(event, ui) {
+        $("#programa").prop('disabled', false);
+    });
+    $("#medio").on("autocompleteresponse", function(event, ui) {
+        if ($('#programa').val().length != 0) {
+            $('#programa').val('');
+        }
+        $("#programa").prop('disabled', true);
+    });
+    $("#programa").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: buscarautocompletes,
+                dataType: "json",
+                data: {
+                    term : request.term,
+                    medio : $('#medio').val(),
+                    opt : 'programa'
+                },
+                success: function(data) {
+                    response(data);
+                }
+            });
+        },
+        minLength: 1,
+        select: itemSeleccionado,
+        focus: itemMarcado
+    });
     /*var $_GET = obtenerVariablesGet(document.location.search);
     if (typeof($_GET['revista']) != "undefined" && $_GET['revista'] !== null) {
         $("#revista").val($_GET['revista']);

@@ -23,8 +23,8 @@
 <select name="tmedio" id="tmedio"></select><br>
 <label for="medio">Medio:</label>
 <input type="text" name="medio" id="medio"><br>
-<label for="textfield">Ciudad:</label>
-<input name="ciudad" type="text" disabled="disabled" id="ciudad"><br>
+<label for="programa">Programa:</label>
+<input name="programa" type="text" id="programa"><br>
 <label for="textfield">Revista:</label>
 <input type="text" name="revista" id="revista">
 <input type="hidden" name="opt" id="opt" value="respros">

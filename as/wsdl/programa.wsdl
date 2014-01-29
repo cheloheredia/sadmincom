@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://127.0.0.1:27/programa/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="programa" targetNamespace="http://127.0.0.1:27/programa/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://127.0.0.1:27/programa/">
+      <xsd:element name="autocompleteprogramaentradas"
+      	type="tns:autocompleteprogramaentradas">
+
+      </xsd:element>
+      <xsd:element name="autocompleteprogramasalidas"
+      	type="tns:autocompleteprogramasalidas">
+
+      </xsd:element>
+
+      <xsd:complexType name="autocompleteprogramaentradas">
+      	<xsd:attribute name="medio" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="programa" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="autocompleteprogramasalidas">
+      	<xsd:sequence>
+      		<xsd:element name="programa" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      	<xsd:attribute name="error" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="autocompleteRequest">
+    <wsdl:part element="tns:autocompleteprogramaentradas" name="autocompleteprogramaentradas"/>
+  </wsdl:message>
+  <wsdl:message name="autocompleteResponse">
+    <wsdl:part element="tns:autocompleteprogramasalidas" name="autocompleteprogramasalidas"/>
+  </wsdl:message>
+  <wsdl:portType name="programa">
+    <wsdl:operation name="autocomplete">
+      <wsdl:input message="tns:autocompleteRequest"/>
+      <wsdl:output message="tns:autocompleteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="programaSOAP" type="tns:programa">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="autocomplete">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:27/programa/autocomplete" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="programa">
+    <wsdl:port binding="tns:programaSOAP" name="programaSOAP">
+      <soap:address location="http://127.0.0.1:27/programa/server.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

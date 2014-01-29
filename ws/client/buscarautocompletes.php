@@ -47,6 +47,20 @@ switch ($opt) {
             $items[0] = $respuesta->error;
         }
         break;
+    case 'programa':
+        include('wsdlprograma.php');
+        $cliente = new SoapClient($programadir,
+                                  array('trace' => 1,
+                                        'cache_wsdl' => WSDL_CACHE_NONE,
+                                        'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                                        'classmap'=>$GLOBALS['classMapprograma']));
+        $respuesta = $cliente->autocomplete(array('programa' => $criterio, 'medio' => $_GET['medio']));
+        if ($respuesta->error == 'OK') {
+            $items = $respuesta->programa;
+        } else {
+            $items[0] = $respuesta->error;
+        }
+        break;
     default:
         break;
 }

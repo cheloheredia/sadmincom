@@ -55,6 +55,9 @@ function itemMarcado(event, ui)
         case 'medio':
             $("#medio").val(item);
             break;
+        case 'programa':
+            $("#programa").val(item);
+            break;
     }
     event.preventDefault();
 }
@@ -75,6 +78,9 @@ function itemSeleccionado(event, ui)
             break;
         case 'medio':
             $("#medio").val(item);
+            break;
+        case 'programa':
+            $("#programa").val(item);
             break;
     }
     event.preventDefault();
