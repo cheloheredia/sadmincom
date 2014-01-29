@@ -52,6 +52,9 @@ function itemMarcado(event, ui)
         case 'protagonista':
             $("#protagonista").val(item);
             break;
+        case 'medio':
+            $("#medio").val(item);
+            break;
     }
     event.preventDefault();
 }
@@ -70,6 +73,9 @@ function itemSeleccionado(event, ui)
         case 'protagonista':
             $("#protagonista").val(item);
             break;
+        case 'medio':
+            $("#medio").val(item);
+            break;
     }
     event.preventDefault();
 }
@@ -83,7 +89,7 @@ function itemSeleccionado(event, ui)
 function cargarCombos(combo){
     switch(combo){
         case 'tmedio':
-            $("#tmedio").append("<option> </option>");
+            $("#tmedio").append("<option></option>");
             $.getJSON(cargarcombos+'?combo='+combo,function(data){
                 $.each(data, function(k,v){
                     $("#tmedio").append("<option>"+v+"</option>");

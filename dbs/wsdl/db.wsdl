@@ -83,6 +83,21 @@
       	<xsd:attribute name="tmedio" type="xsd:int"></xsd:attribute>
       	<xsd:attribute name="medio" type="xsd:string"></xsd:attribute>
       </xsd:complexType>
+      <xsd:element name="buscarprogramamedioentradas"
+      	type="tns:buscarprogramamedioentradas">
+      </xsd:element>
+      <xsd:element name="buscarprogramamedioResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+      <xsd:complexType name="buscarprogramamedioentradas">
+      	<xsd:attribute name="medio" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="programa" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -115,6 +130,12 @@
   <wsdl:message name="buscarmediotmedioResponse">
   	<wsdl:part name="buscarmediotmediosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscarprogramamedioRequest">
+  	<wsdl:part name="buscarprogramamedioentradas" element="tns:buscarprogramamedioentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarprogramamedioResponse">
+  	<wsdl:part name="buscarprogramamediosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -135,6 +156,10 @@
     <wsdl:operation name="buscarmediotmedio">
     	<wsdl:input message="tns:buscarmediotmedioRequest"></wsdl:input>
     	<wsdl:output message="tns:buscarmediotmedioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarprogramamedio">
+    	<wsdl:input message="tns:buscarprogramamedioRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarprogramamedioResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -194,8 +219,21 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="buscarmediotmedio">
+
   		<soap:operation
   			soapAction="http://127.0.0.1:26/db/buscarmediotmedio" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarprogramamedio">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarprogramamedio" />
   		<wsdl:input>
   			<soap:body use="literal" />
   		</wsdl:input>

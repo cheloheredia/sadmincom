@@ -18,10 +18,40 @@ class mostrartmediossalidas {
 
 }
 
+class autocompletemedioentradas {
+
+    /**
+     * @var string
+     */
+    public $medio;
+
+    /**
+     * @var string
+     */
+    public $tmedio;
+
+}
+
+class autocompletemediosalidas {
+
+    /**
+     * @var array of string
+     */
+    public $medio;
+
+    /**
+     * @var string
+     */
+    public $error;
+
+}
+
 /**
  * @var array
  */
 $GLOBALS['classMapmedio'] = array(
-	'mostrartmediossalidas' => 'mostrartmediossalidas'
+	'mostrartmediossalidas' => 'mostrartmediossalidas',
+    'autocompletemedioentrada' => 'autocompletemedioentrada',
+    'autocompletemediosalidas' => 'autocompletemediosalidas'
 );
 

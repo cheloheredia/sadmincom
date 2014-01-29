@@ -21,8 +21,8 @@
 <textarea name="resumen" id="resumen"></textarea><br>
 <label for="tmedio">Tipo Medio:</label>
 <select name="tmedio" id="tmedio"></select><br>
-<label for="textfield">Pais:</label>
-<input type="text" name="pais" id="pais"><br>
+<label for="medio">Medio:</label>
+<input type="text" name="medio" id="medio"><br>
 <label for="textfield">Ciudad:</label>
 <input name="ciudad" type="text" disabled="disabled" id="ciudad"><br>
 <label for="textfield">Revista:</label>

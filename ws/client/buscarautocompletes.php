@@ -33,6 +33,20 @@ switch ($opt) {
             $items[0] = $respuesta->error;
         }
         break;
+    case 'medio':
+        include('wsdlmedio.php');
+        $cliente = new SoapClient($mediodir,
+                                  array('trace' => 1,
+                                        'cache_wsdl' => WSDL_CACHE_NONE,
+                                        'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                                        'classmap'=>$GLOBALS['classMapmedio']));
+        $respuesta = $cliente->autocomplete(array('medio' => $criterio, 'tmedio' => $_GET['tmedio']));
+        if ($respuesta->error == 'OK') {
+            $items = $respuesta->medio;
+        } else {
+            $items[0] = $respuesta->error;
+        }
+        break;
     default:
         break;
 }

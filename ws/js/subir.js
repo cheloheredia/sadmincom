@@ -24,6 +24,34 @@ $(function()
         focus: itemMarcado
     });
     cargarCombos('tmedio');
+    $("#medio").prop('disabled', true);
+    $("#tmedio").change(function(){
+        if ($('#tmedio').val().length > 0) {
+            $("#medio").prop('disabled', false);
+        } else {
+            $("#medio").prop('disabled', true);
+            $('#medio').val('');
+        }
+    });
+    $("#medio").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: buscarautocompletes,
+                dataType: "json",
+                data: {
+                    term : request.term,
+                    tmedio : $('#tmedio').val(),
+                    opt : 'medio'
+                },
+                success: function(data) {
+                    response(data);
+                }
+            });
+        },
+        minLength: 1,
+        select: itemSeleccionado,
+        focus: itemMarcado
+    });
     /*var $_GET = obtenerVariablesGet(document.location.search);
     if (typeof($_GET['revista']) != "undefined" && $_GET['revista'] !== null) {
         $("#revista").val($_GET['revista']);

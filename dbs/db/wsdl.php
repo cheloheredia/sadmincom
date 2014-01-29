@@ -67,6 +67,29 @@ class buscarmediotmedioentradas {
 
 }
 
+class buscarmedioentradas {
+
+    /**
+     * @var string
+     */
+    public $medio;
+
+}
+
+class buscarprogramamedioentradas {
+
+    /**
+     * @var string
+     */
+    public $programa;
+
+    /**
+     * @var int
+     */
+    public $medio;
+
+}
+
 /**
 * @var array
 */
@@ -76,6 +99,8 @@ $classMap = array(
 	'filas' => 'filas',
     'buscarprotagonistaentradas' => 'buscarprotagonistaentradas',
     'buscartmedioentradas' => 'buscartmedioentradas',
-    'buscarmediotmedioentradas' => 'buscarmediotmedioentradas'
+    'buscarmediotmedioentradas' => 'buscarmediotmedioentradas',
+    'buscarmedioentradas' => 'buscarmedioentradas',
+    'buscarprogramamedioentradas' => 'buscarprogramamedioentradas'
 );
 

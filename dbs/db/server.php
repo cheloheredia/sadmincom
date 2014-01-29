@@ -131,6 +131,37 @@ class db {
 	}
 
 	/**
+	* Esta funcion busca medio definido en la tabla medio.
+	*
+	* @param string $input->medio el medio a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarmedio($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.mn, a.mmedio, a.mtipo, a.mciudad from medio a where a.mmedio = '".
+		                           $input->medio."'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca programa definido en la tabla programa segun un medio.
+	*
+	* @param int $input->medio el medio al que pertenece el programa a buscar
+	* @param string $input->programa el medio a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarprogramamedio($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.pron, a.proprograma from programa a, programamedio b where".
+		                           " b.pmprograma = a.pron and b.pmmedio = ".$input->medio." and a.proprograma like '".
+		                           $input->programa."%' limit 10");
+		$this->desconexion();
+		return $response;
+	}
+	/**
 	* Esta funcion inserta un prospecto en la tabla prospecto.
 	*
 	* @param string $input->nombre el nombre del prospecto que se desea insertar

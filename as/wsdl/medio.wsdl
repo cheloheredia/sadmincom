@@ -21,6 +21,26 @@
       	</xsd:sequence>
       	<xsd:attribute name="error" type="xsd:string"></xsd:attribute>
       </xsd:complexType>
+      <xsd:element name="autocompletemedioentradas"
+      	type="tns:autocompletemedioentradas">
+
+      </xsd:element>
+      <xsd:element name="autocompletemediosalidas"
+      	type="tns:autocompletemediosalidas">
+
+      </xsd:element>
+
+      <xsd:complexType name="autocompletemedioentradas">
+      	<xsd:attribute name="medio" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="tmedio" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="autocompletemediosalidas">
+      	<xsd:sequence>
+      		<xsd:element name="medio" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      	<xsd:attribute name="error" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="mostrartmediosRequest">
@@ -29,10 +49,20 @@
   <wsdl:message name="mostrartmediosResponse">
     <wsdl:part element="tns:mostrartmediossalidas" name="mostrartmediossalidas"/>
   </wsdl:message>
+  <wsdl:message name="autocompleteRequest">
+  	<wsdl:part name="autocompletemedioentradas" element="tns:autocompletemedioentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="autocompleteResponse">
+  	<wsdl:part name="autocompletemediosalidas" element="tns:autocompletemediosalidas"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="medio">
     <wsdl:operation name="mostrartmedios">
       <wsdl:input message="tns:mostrartmediosRequest"/>
       <wsdl:output message="tns:mostrartmediosResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="autocomplete">
+    	<wsdl:input message="tns:autocompleteRequest"></wsdl:input>
+    	<wsdl:output message="tns:autocompleteResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="medioSOAP" type="tns:medio">
@@ -49,6 +79,16 @@
   		</wsdl:input>
   		<wsdl:output>
 
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="autocomplete">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:27/medio/autocomplete" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>
