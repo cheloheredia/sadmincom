@@ -191,6 +191,19 @@ class db {
 		$this->desconexion();
 		return $response;
 	}
+
+	/**
+	* Esta funcion busca todos los espacios definidos en la tabla espacio.
+	*
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarespaciotodo($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.en, a.eespacio from espacio a");
+		$this->desconexion();
+		return $response;
+	}
 	/**
 	* Esta funcion inserta un prospecto en la tabla prospecto.
 	*
