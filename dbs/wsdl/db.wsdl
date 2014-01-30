@@ -147,6 +147,35 @@
             		</xsd:sequence>
             	</xsd:complexType>
             </xsd:element>
+            <xsd:element name="buscardepartamentoentradas"
+            	type="tns:buscardepartamentoentradas">
+            </xsd:element>
+            <xsd:element name="buscardepartamentoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+            <xsd:complexType name="buscardepartamentoentradas">
+            	<xsd:attribute name="departamento" type="xsd:string"></xsd:attribute>
+            </xsd:complexType>
+            <xsd:element name="buscarciudaddepartamentoentradas"
+            	type="tns:buscarciudaddepartamentoentradas">
+            </xsd:element>
+            <xsd:element name="buscarciudaddepartamentoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+            <xsd:complexType name="buscarciudaddepartamentoentradas">
+            	<xsd:attribute name="departamento" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="ciudad" type="xsd:string"></xsd:attribute>
+            </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -209,6 +238,18 @@
   <wsdl:message name="buscardepartamentotodoResponse">
   	<wsdl:part name="buscardepartamentotodosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscardepartamentoRequest">
+  	<wsdl:part name="buscardepartamentoentradas" element="tns:buscardepartamentoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscardepartamentoResponse">
+  	<wsdl:part name="buscardepartamentosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarciudaddepartamentoRequest">
+  	<wsdl:part name="buscarciudaddepartamentoentradas" element="tns:buscarciudaddepartamentoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarciudaddepartamentoResponse">
+  	<wsdl:part name="buscarciudaddepartamentosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -249,6 +290,14 @@
     <wsdl:operation name="buscardepartamentotodo">
     	<wsdl:input message="tns:buscardepartamentotodoRequest"></wsdl:input>
     	<wsdl:output message="tns:buscardepartamentotodoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscardepartamento">
+    	<wsdl:input message="tns:buscardepartamentoRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscardepartamentoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarciudaddepartamento">
+    	<wsdl:input message="tns:buscarciudaddepartamentoRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarciudaddepartamentoResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -373,8 +422,34 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="buscardepartamentotodo">
+
   		<soap:operation
   			soapAction="http://127.0.0.1:26/db/buscardepartamentotodo" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscardepartamento">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscardepartamento" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarciudaddepartamento">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarciudaddepartamento" />
   		<wsdl:input>
   			<soap:body use="literal" />
   		</wsdl:input>

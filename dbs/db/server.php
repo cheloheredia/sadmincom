@@ -217,6 +217,37 @@ class db {
 		$this->desconexion();
 		return $response;
 	}
+
+	/**
+	* Esta funcion busca departamento definido en la tabla departamento.
+	*
+	* @param string $input->departamento el departamento a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscardepartamento($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.dn, a.ddepartamento from departamento a where a.ddepartamento = '".
+		                           $input->departamento."'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca ciudad definido en la tabla ciudad segun un departamento.
+	*
+	* @param int $input->departamento el departamento al que pertenece la ciudad a buscar
+	* @param string $input->ciudad el ciudad a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarciudaddepartamento($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.cn, a.cciudad, a.cdepartamento from ciudad a where a.cdepartamento = ".
+		                           $input->departamento." and a.cciudad like '".$input->ciudad."%' limit 10");
+		$this->desconexion();
+		return $response;
+	}
 	/**
 	* Esta funcion inserta un prospecto en la tabla prospecto.
 	*
