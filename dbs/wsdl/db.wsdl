@@ -176,6 +176,17 @@
             	<xsd:attribute name="departamento" type="xsd:int"></xsd:attribute>
             	<xsd:attribute name="ciudad" type="xsd:string"></xsd:attribute>
             </xsd:complexType>
+            <xsd:element name="buscarclasificaciontodoentradas"
+            	type="tns:buscartmediotodoentreadas">
+            </xsd:element>
+            <xsd:element name="buscarclasificaciontodoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -250,6 +261,12 @@
   <wsdl:message name="buscarciudaddepartamentoResponse">
   	<wsdl:part name="buscarciudaddepartamentosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscarclasificaciontodoRequest">
+  	<wsdl:part name="buscarclasificaciontodoentradas" element="tns:buscarclasificaciontodoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarclasificaciontodoResponse">
+  	<wsdl:part name="buscarclasificaciontodosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -298,6 +315,10 @@
     <wsdl:operation name="buscarciudaddepartamento">
     	<wsdl:input message="tns:buscarciudaddepartamentoRequest"></wsdl:input>
     	<wsdl:output message="tns:buscarciudaddepartamentoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarclasificaciontodo">
+    	<wsdl:input message="tns:buscarclasificaciontodoRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarclasificaciontodoResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -448,8 +469,21 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="buscarciudaddepartamento">
+
   		<soap:operation
   			soapAction="http://127.0.0.1:26/db/buscarciudaddepartamento" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarclasificaciontodo">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarclasificaciontodo" />
   		<wsdl:input>
   			<soap:body use="literal" />
   		</wsdl:input>
