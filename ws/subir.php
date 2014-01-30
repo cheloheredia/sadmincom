@@ -29,6 +29,8 @@
 <select name="horario" id="horario"></select><br>
 <label for="espacio">Espacio:</label>
 <select name="espacio" id="espacio"></select><br>
+<label for="departamento">Departamento:</label>
+<select name="departamento" id="departamento"></select><br>
 <input type="hidden" name="opt" id="opt" value="respros">
 <input name="enviar" id='enviar' type="button" value="Subir Archivo" /><br>
 </div>

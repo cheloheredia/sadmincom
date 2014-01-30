@@ -33,3 +33,9 @@ $horariodir = $asdir.'/wsdl/horario.wsdl';
  * @var string
  */
 $espaciodir = $asdir.'/wsdl/espacio.wsdl';
+
+/**
+ * @var string
+ */
+$departamentodir = $asdir.'/wsdl/departamento.wsdl';
+

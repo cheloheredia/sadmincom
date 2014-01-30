@@ -118,5 +118,13 @@ function cargarCombos(combo){
                 });
             });
             break;
+        case 'departamento':
+            $("#departamento").append("<option></option>");
+            $.getJSON(cargarcombos+'?combo='+combo,function(data){
+                $.each(data, function(k,v){
+                    $("#departamento").append("<option>"+v+"</option>");
+                });
+            });
+            break;
     }
 }

@@ -91,6 +91,7 @@ $(function()
         $("#horario").prop('disabled', true);
     });
     cargarCombos('espacio');
+    cargarCombos('departamento');
     /*var $_GET = obtenerVariablesGet(document.location.search);
     if (typeof($_GET['revista']) != "undefined" && $_GET['revista'] !== null) {
         $("#revista").val($_GET['revista']);

@@ -52,6 +52,20 @@ switch ($combo) {
             $opciones = $respuesta->error;
         }
         break;
+    case 'departamento':
+        include('wsdldepartamento.php');
+        $cliente = new SoapClient($departamentodir,
+                                  array('trace' => 1,
+                                        'cache_wsdl' => WSDL_CACHE_NONE,
+                                        'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                                        'classmap'=>$GLOBALS['classMapdepartamento']));
+        $respuesta = $cliente->cargarcombo();
+        if ($respuesta->error == 'OK') {
+            $opciones = $respuesta->departamento;
+        } else {
+            $opciones = $respuesta->error;
+        }
+        break;
     default:
         $respuesta->error = 'Error de combo';
         break;
