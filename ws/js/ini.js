@@ -132,5 +132,13 @@ function cargarCombos(combo){
                 });
             });
             break;
+        case 'clasificacion':
+            $("#clasificacion").append("<option></option>");
+            $.getJSON(cargarcombos+'?combo='+combo,function(data){
+                $.each(data, function(k,v){
+                    $("#clasificacion").append("<option>"+v+"</option>");
+                });
+            });
+            break;
     }
 }

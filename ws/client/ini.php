@@ -44,3 +44,8 @@ $departamentodir = $asdir.'/wsdl/departamento.wsdl';
  */
 $ciudaddir = $asdir.'/wsdl/ciudad.wsdl';
 
+/**
+ * @var string
+ */
+$clasificaciondir = $asdir.'/wsdl/clasificacion.wsdl';
+

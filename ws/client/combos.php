@@ -66,6 +66,20 @@ switch ($combo) {
             $opciones = $respuesta->error;
         }
         break;
+    case 'clasificacion':
+        include('wsdlclasificacion.php');
+        $cliente = new SoapClient($clasificaciondir,
+                                  array('trace' => 1,
+                                        'cache_wsdl' => WSDL_CACHE_NONE,
+                                        'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                                        'classmap'=>$GLOBALS['classMapclasificacion']));
+        $respuesta = $cliente->cargarcombo();
+        if ($respuesta->error == 'OK') {
+            $opciones = $respuesta->clasificacion;
+        } else {
+            $opciones = $respuesta->error;
+        }
+        break;
     default:
         $respuesta->error = 'Error de combo';
         break;

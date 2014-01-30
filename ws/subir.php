@@ -33,6 +33,8 @@
 <select name="departamento" id="departamento"></select><br>
 <label for="ciudad">Ciudad o Localidad:</label>
 <input name="ciudad" type="text" id="ciudad"><br>
+<label for="clasificacion">Clasificacion:</label>
+<select name="clasificacion" id="clasificacion"></select><br>
 <input type="hidden" name="opt" id="opt" value="respros">
 <input name="enviar" id='enviar' type="button" value="Subir Archivo" /><br>
 </div>
