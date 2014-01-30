@@ -110,5 +110,13 @@ function cargarCombos(combo){
                 });
             });
             break;
+        case 'espacio':
+            $("#espacio").append("<option></option>");
+            $.getJSON(cargarcombos+'?combo='+combo,function(data){
+                $.each(data, function(k,v){
+                    $("#espacio").append("<option>"+v+"</option>");
+                });
+            });
+            break;
     }
 }

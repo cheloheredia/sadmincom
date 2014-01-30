@@ -38,6 +38,20 @@ switch ($combo) {
             $opciones = $respuesta->error;
         }
         break;
+    case 'espacio':
+        include('wsdlespacio.php');
+        $cliente = new SoapClient($espaciodir,
+                                  array('trace' => 1,
+                                        'cache_wsdl' => WSDL_CACHE_NONE,
+                                        'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                                        'classmap'=>$GLOBALS['classMapespacio']));
+        $respuesta = $cliente->cargarcombo();
+        if ($respuesta->error == 'OK') {
+            $opciones = $respuesta->espacio;
+        } else {
+            $opciones = $respuesta->error;
+        }
+        break;
     default:
         $respuesta->error = 'Error de combo';
         break;

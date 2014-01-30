@@ -27,6 +27,8 @@
 <input name="programa" type="text" id="programa"><br>
 <label for="horario">Horario:</label>
 <select name="horario" id="horario"></select><br>
+<label for="espacio">Espacio:</label>
+<select name="espacio" id="espacio"></select><br>
 <input type="hidden" name="opt" id="opt" value="respros">
 <input name="enviar" id='enviar' type="button" value="Subir Archivo" /><br>
 </div>
