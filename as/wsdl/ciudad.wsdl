@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://127.0.0.1:27/ciudad/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ciudad" targetNamespace="http://127.0.0.1:27/ciudad/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://127.0.0.1:27/ciudad/">
+      <xsd:element name="autocompleteciudadentradas"
+      	type="tns:autocompleteciudadentradas">
+
+      </xsd:element>
+      <xsd:element name="autocompleteciudadsalidas"
+      	type="tns:autocompleteciudadsalidas">
+
+      </xsd:element>
+
+      <xsd:complexType name="autocompleteciudadentradas">
+      	<xsd:attribute name="departamento" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="ciudad" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="autocompleteciudadsalidas">
+      	<xsd:sequence>
+      		<xsd:element name="ciudad" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      	<xsd:attribute name="error" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="autocompleteRequest">
+    <wsdl:part element="tns:autocompleteciudadentradas" name="autocompleteciudadentradas"/>
+  </wsdl:message>
+  <wsdl:message name="autocompleteResponse">
+    <wsdl:part element="tns:autocompleteciudadsalidas" name="autocompleteciudadsalidas"/>
+  </wsdl:message>
+  <wsdl:portType name="ciudad">
+    <wsdl:operation name="autocomplete">
+      <wsdl:input message="tns:autocompleteRequest"/>
+      <wsdl:output message="tns:autocompleteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ciudadSOAP" type="tns:ciudad">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="autocomplete">
+
+  		<soap:operation
+  			soapAction="http://127.0.0.1:27/ciudad/autocomplete" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ciudad">
+    <wsdl:port binding="tns:ciudadSOAP" name="ciudadSOAP">
+      <soap:address location="http://127.0.0.1:27/ciudad/server.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -30,8 +30,8 @@ $(function()
             $("#medio").prop('disabled', false);
         } else {
             $("#medio").prop('disabled', true);
-            $('#medio').val('');
         }
+        $('#medio').val('');
     });
     $("#medio").autocomplete({
         source: function(request, response) {
@@ -92,6 +92,34 @@ $(function()
     });
     cargarCombos('espacio');
     cargarCombos('departamento');
+    $("#ciudad").prop('disabled', true);
+    $("#departamento").change(function(){
+        if ($('#departamento').val().length > 0) {
+            $("#ciudad").prop('disabled', false);
+        } else {
+            $("#ciudad").prop('disabled', true);
+        }
+        $('#ciudad').val('');
+    });
+    $("#ciudad").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: buscarautocompletes,
+                dataType: "json",
+                data: {
+                    term : request.term,
+                    departamento : $('#departamento').val(),
+                    opt : 'ciudad'
+                },
+                success: function(data) {
+                    response(data);
+                }
+            });
+        },
+        minLength: 1,
+        select: itemSeleccionado,
+        focus: itemMarcado
+    });
     /*var $_GET = obtenerVariablesGet(document.location.search);
     if (typeof($_GET['revista']) != "undefined" && $_GET['revista'] !== null) {
         $("#revista").val($_GET['revista']);

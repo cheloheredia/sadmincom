@@ -108,6 +108,29 @@ class buscarhorarioprogramaentradas {
 
 }
 
+class buscardepartamentoentradas {
+
+    /**
+     * @var string
+     */
+    public $departamento;
+
+}
+
+class buscarciudaddepartamentoentradas {
+
+    /**
+     * @var string
+     */
+    public $ciudad;
+
+    /**
+     * @var int
+     */
+    public $departamento;
+
+}
+
 /**
 * @var array
 */
@@ -120,6 +143,8 @@ $GLOBALS['classMapdb'] = array(
     'buscarmediotmedioentradas' => 'buscarmediotmedioentradas',
     'buscarmedioentradas' => 'buscarmedioentradas',
     'buscarprogramamedioentradas' => 'buscarprogramamedioentradas',
-    'buscarhorarioprogramaentradas' => 'buscarhorarioprogramaentradas'
+    'buscarhorarioprogramaentradas' => 'buscarhorarioprogramaentradas',
+    'buscardepartamentoentradas' => 'buscardepartamentoentradas',
+    'buscarciudaddepartamentoentradas' => 'buscarciudaddepartamentoentradas'
 );
 

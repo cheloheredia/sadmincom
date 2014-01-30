@@ -58,6 +58,9 @@ function itemMarcado(event, ui)
         case 'programa':
             $("#programa").val(item);
             break;
+        case 'ciudad':
+            $("#ciudad").val(item);
+            break;
     }
     event.preventDefault();
 }
@@ -81,6 +84,9 @@ function itemSeleccionado(event, ui)
             break;
         case 'programa':
             $("#programa").val(item);
+            break;
+        case 'ciudad':
+            $("#ciudad").val(item);
             break;
     }
     event.preventDefault();

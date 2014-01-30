@@ -61,6 +61,20 @@ switch ($opt) {
             $items[0] = $respuesta->error;
         }
         break;
+    case 'ciudad':
+        include('wsdlciudad.php');
+        $cliente = new SoapClient($ciudaddir,
+                                  array('trace' => 1,
+                                        'cache_wsdl' => WSDL_CACHE_NONE,
+                                        'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                                        'classmap'=>$GLOBALS['classMapciudad']));
+        $respuesta = $cliente->autocomplete(array('ciudad' => $criterio, 'departamento' => $_GET['departamento']));
+        if ($respuesta->error == 'OK') {
+            $items = $respuesta->ciudad;
+        } else {
+            $items[0] = $respuesta->error;
+        }
+        break;
     default:
         break;
 }
