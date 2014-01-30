@@ -137,6 +137,16 @@
             <xsd:element name="buscarespaciotodoentradas"
             	type="tns:buscartmediotodoentreadas">
             </xsd:element>
+            <xsd:element name="buscardepartamentotodoentradas"
+            	type="tns:buscartmediotodoentreadas">
+            </xsd:element>
+            <xsd:element name="buscardepartamentotodoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -193,6 +203,12 @@
   <wsdl:message name="buscarespaciotodoResponse">
   	<wsdl:part name="buscarespaciotodosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscardepartamentotodoRequest">
+  	<wsdl:part name="buscardepartamentotodoentradas" element="tns:buscardepartamentotodoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscardepartamentotodoResponse">
+  	<wsdl:part name="buscardepartamentotodosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -229,6 +245,10 @@
     <wsdl:operation name="buscarespaciotodo">
     	<wsdl:input message="tns:buscarespaciotodoRequest"></wsdl:input>
     	<wsdl:output message="tns:buscarespaciotodoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscardepartamentotodo">
+    	<wsdl:input message="tns:buscardepartamentotodoRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscardepartamentotodoResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -349,6 +369,16 @@
   		</wsdl:input>
   		<wsdl:output>
 
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscardepartamentotodo">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscardepartamentotodo" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>
