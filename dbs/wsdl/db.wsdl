@@ -187,6 +187,94 @@
             	</xsd:complexType>
             </xsd:element>
     
+            <xsd:element name="buscaclasificacionentradas"
+            	type="tns:buscaclasificacionentradas">
+            </xsd:element>
+            <xsd:element name="buscaclasificacionResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+            <xsd:complexType name="buscaclasificacionentradas">
+            	<xsd:attribute name="clasificacion" type="xsd:string"></xsd:attribute>
+            </xsd:complexType>
+            <xsd:element name="buscarusuariouserentradas"
+            	type="tns:buscarusuariouserentradas">
+            </xsd:element>
+            <xsd:element name="buscarusuariouserResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+            <xsd:complexType name="buscarusuariouserentradas">
+            	<xsd:attribute name="user" type="xsd:string"></xsd:attribute>
+            </xsd:complexType>
+            <xsd:element name="buscaespacioentradas"
+            	type="tns:buscaespacioentradas">
+            </xsd:element>
+            <xsd:element name="buscaespacioResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+            <xsd:complexType name="buscaespacioentradas">
+            	<xsd:attribute name="espacio" type="xsd:string"></xsd:attribute>
+            </xsd:complexType>
+            <xsd:element name="buscartarchivoextencionentradas"
+            	type="tns:buscartarchivoextencionentradas">
+            </xsd:element>
+            <xsd:element name="buscartarchivoResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    
+            <xsd:complexType name="buscartarchivoextencionentradas">
+            	<xsd:attribute name="extencion" type="xsd:string"></xsd:attribute>
+            </xsd:complexType>
+            <xsd:element name="insertararchivoentradas"
+            	type="tns:insertararchivoentradas">
+            </xsd:element>
+            <xsd:element name="res" type="tns:res"></xsd:element>
+            
+            <xsd:complexType name="insertararchivoentradas">
+            	<xsd:attribute name="fecha" type="xsd:date"></xsd:attribute>
+            	<xsd:attribute name="titular" type="xsd:string"></xsd:attribute>
+            	<xsd:attribute name="protagonista" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="resumen" type="xsd:string"></xsd:attribute>
+            	<xsd:attribute name="programa" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="ciudad" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="clasificacion" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="usuarioactualizacion"
+            		type="xsd:int">
+            	</xsd:attribute>
+            	<xsd:attribute name="fechaactualizacion"
+            		type="xsd:dateTime">
+            	</xsd:attribute>
+            	<xsd:attribute name="vistas" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="usuariocargado" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="fechacargado"
+            		type="xsd:dateTime">
+            	</xsd:attribute>
+            	<xsd:attribute name="dirrecion" type="xsd:string"></xsd:attribute>
+            	<xsd:attribute name="espacio" type="xsd:int"></xsd:attribute>
+            	<xsd:attribute name="tipo" type="xsd:int"></xsd:attribute>
+            </xsd:complexType>
+    
+            <xsd:complexType name="res">
+            	<xsd:attribute name="res" type="xsd:int"></xsd:attribute>
+            </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="buscarprotagonistaRequest">
@@ -267,6 +355,36 @@
   <wsdl:message name="buscarclasificaciontodoResponse">
   	<wsdl:part name="buscarclasificaciontodosalidas" element="tns:resquery"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="buscaclasificacionRequest">
+  	<wsdl:part name="buscaclasificacionentradas" element="tns:buscaclasificacionentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscaclasificacionResponse">
+  	<wsdl:part name="buscaclasificacionsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarusuariouserRequest">
+  	<wsdl:part name="buscarusuariouserentradas" element="tns:buscarusuariouserentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarusuariouserResponse">
+  	<wsdl:part name="buscarusuariousersalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscaespacioRequest">
+  	<wsdl:part name="buscaespacioentradas" element="tns:buscaespacioentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscaespacioResponse">
+  	<wsdl:part name="buscaespaciosalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscartarchivoextencionRequest">
+  	<wsdl:part name="buscartarchivoextencionentradas" element="tns:buscartarchivoextencionentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscartarchivoextencionResponse">
+  	<wsdl:part name="buscartarchivoextencionsalidas" element="tns:resquery"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertararchivoRequest">
+  	<wsdl:part name="insertararchivoentradas" element="tns:insertararchivoentradas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertararchivoResponse">
+  	<wsdl:part name="insertararchivosalidas" element="tns:res"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="db">
     <wsdl:operation name="buscarprotagonista">
       <wsdl:input message="tns:buscarprotagonistaRequest"/>
@@ -319,6 +437,26 @@
     <wsdl:operation name="buscarclasificaciontodo">
     	<wsdl:input message="tns:buscarclasificaciontodoRequest"></wsdl:input>
     	<wsdl:output message="tns:buscarclasificaciontodoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaclasificacion">
+    	<wsdl:input message="tns:buscaclasificacionRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscaclasificacionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarusuariouser">
+    	<wsdl:input message="tns:buscarusuariouserRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscarusuariouserResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaespacio">
+    	<wsdl:input message="tns:buscaespacioRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscaespacioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscartarchivoextencion">
+    	<wsdl:input message="tns:buscartarchivoextencionRequest"></wsdl:input>
+    	<wsdl:output message="tns:buscartarchivoextencionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertararchivo">
+    	<wsdl:input message="tns:insertararchivoRequest"></wsdl:input>
+    	<wsdl:output message="tns:insertararchivoResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="dbSOAP" type="tns:db">
@@ -482,8 +620,61 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="buscarclasificaciontodo">
+
   		<soap:operation
   			soapAction="http://127.0.0.1:26/db/buscarclasificaciontodo" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscaclasificacion">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscaclasificacion" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscarusuariouser">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscarusuariouser" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscaespacio">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscaespacio" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="buscartarchivoextencion">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/buscartarchivoextencion" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="insertararchivo">
+  		<soap:operation
+  			soapAction="http://127.0.0.1:26/db/insertararchivo" />
   		<wsdl:input>
   			<soap:body use="literal" />
   		</wsdl:input>

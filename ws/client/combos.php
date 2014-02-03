@@ -31,7 +31,7 @@ switch ($combo) {
                                         'cache_wsdl' => WSDL_CACHE_NONE,
                                         'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
                                         'classmap'=>$GLOBALS['classMaphorario']));
-        $respuesta = $cliente->cargarcombo(array('programa' => $_GET['programa']));
+        $respuesta = $cliente->cargarcombo(array('programa' => $_GET['programa'], 'medio' => $_GET['medio']));
         if ($respuesta->error == 'OK') {
             $opciones = $respuesta->horario;
         } else {

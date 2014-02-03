@@ -131,6 +131,121 @@ class buscarciudaddepartamentoentradas {
 
 }
 
+class buscaclasificacionentradas {
+
+    /**
+     * @var string
+     */
+    public $clasificacion;
+
+}
+
+class buscarusuariouserentradas {
+
+    /**
+     * @var string
+     */
+    public $user;
+
+}
+
+class buscaespacioentradas {
+
+    /**
+     * @var string
+     */
+    public $espacio;
+
+}
+
+class buscartarchivoextencionentradas {
+
+    /**
+     * @var string
+     */
+    public $extencion;
+
+}
+
+class insertararchivoentradas {
+
+    /**
+     * @var string
+     */
+    public $fecha;
+
+    /**
+     * @var string
+     */
+    public $titular;
+
+    /**
+     * @var string
+     */
+    public $protagonista;
+
+    /**
+     * @var string
+     */
+    public $resumen;
+
+    /**
+     * @var string
+     */
+    public $programa;
+
+    /**
+     * @var string
+     */
+    public $ciudad;
+
+    /**
+     * @var string
+     */
+    public $clasificacion;
+
+    /**
+     * @var string
+     */
+    public $usuarioactualizacion;
+
+    /**
+     * @var string
+     */
+    public $fechaactualizacion;
+
+    /**
+     * @var string
+     */
+    public $vistas;
+
+    /**
+     * @var string
+     */
+    public $usuariocargado;
+
+    /**
+     * @var string
+     */
+    public $fechacargado;
+
+    /**
+     * @var string
+     */
+    public $dirrecion;
+
+    /**
+     * @var string
+     */
+    public $espacio;
+
+    /**
+     * @var string
+     */
+    public $tipo;
+
+}
+
 /**
 * @var array
 */
@@ -145,6 +260,11 @@ $classMap = array(
     'buscarprogramamedioentradas' => 'buscarprogramamedioentradas',
     'buscarhorarioprogramaentradas' => 'buscarhorarioprogramaentradas',
     'buscardepartamentoentradas' => 'buscardepartamentoentradas',
-    'buscarciudaddepartamentoentradas' => 'buscarciudaddepartamentoentradas'
+    'buscarciudaddepartamentoentradas' => 'buscarciudaddepartamentoentradas',
+    'buscaclasificacionentradas' => 'buscaclasificacionentradas',
+    'buscarusuariouserentradas' => 'buscarusuariouserentradas',
+    'buscaespacioentradas' => 'buscaespacioentradas',
+    'buscartarchivoextencionentradas' => 'buscartarchivoextencionentradas',
+    'insertararchivoentradas' => 'insertararchivoentradas'
 );
 

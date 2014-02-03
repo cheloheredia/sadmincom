@@ -35,7 +35,8 @@
 <input name="ciudad" type="text" id="ciudad"><br>
 <label for="clasificacion">Clasificacion:</label>
 <select name="clasificacion" id="clasificacion"></select><br>
-<input type="hidden" name="opt" id="opt" value="respros">
+<label for="archivo">Archivo:</label>
+  <input type="file" name="archivo" id="archivo"><br>
 <input name="enviar" id='enviar' type="button" value="Subir Archivo" /><br>
 </div>
 <div id="respuesta"></div>

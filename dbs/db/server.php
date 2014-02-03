@@ -155,9 +155,9 @@ class db {
 	*/
 	public function buscarprogramamedio($input) {
 		$this->conexion();
-		$response = $this->mostrar("select a.pron, a.proprograma from programa a, programamedio b where".
-		                           " b.pmprograma = a.pron and b.pmmedio = ".$input->medio." and a.proprograma like '".
-		                           $input->programa."%' limit 10");
+		$response = $this->mostrar("select distinct(a.pron), a.proprograma from programa a, programamediohorario".
+		                           " b where b.pmhprograma = a.pron and b.pmhmedio = ".$input->medio.
+		                           " and a.proprograma like '".$input->programa."%' limit 10");
 		$this->desconexion();
 		return $response;
 	}
@@ -186,8 +186,8 @@ class db {
 	*/
 	public function buscarhorarioprograma($input) {
 		$this->conexion();
-		$response = $this->mostrar("select a.hn, hhorario from horario a, programahorario b where".
-		                           " b.phhorario = a.hn and b.phprograma = ".$input->programa);
+		$response = $this->mostrar("select a.hn, a.hhorario, b.pmhmedio from horario a, programamediohorario b where".
+		                           " b.pmhhorario = a.hn and b.pmhprograma = ".$input->programa);
 		$this->desconexion();
 		return $response;
 	}
@@ -261,29 +261,105 @@ class db {
 		$this->desconexion();
 		return $response;
 	}
+
 	/**
-	* Esta funcion inserta un prospecto en la tabla prospecto.
+	* Esta funcion busca clasificacion definido en la tabla clasificacion.
 	*
-	* @param string $input->nombre el nombre del prospecto que se desea insertar
-	* @param string $input->apellido el apellido del prospecto que se desea insertar
-	* @param string $input->email el email del prospecto que se desea insertar
-	* @param int $input->cuidad la ciudad del prospecto que se desea insertar
-	* @param datetime $input->fecha fecha de suscripcion al sistema del prospecto que se desea insertar
+	* @param string $input->clasificacion el clasificacion a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarclasficacion($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.cn, a.cclasificacion from clasificacion a where a.cclasificacion = '".
+		                           $input->clasificacion."'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca usuario definido en la tabla usuario por user.
+	*
+	* @param string $input->user el usuario a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscarusuariouser($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.un, a.unombres, a.uapaterno, a.uamaterno, a.utipo, a.uusuario,".
+		                           " a.upass, a.uestadologing, a.uestadouso from usuario a where a.uusuario = '".
+		                           $input->user."'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca espacio definido en la tabla espacio.
+	*
+	* @param string $input->espacio el usuario a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscaespacio($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.en, a.eespacio from espacio a where a.eespacio = '".$input->espacio."'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion busca tipo de archivo definido en la tabla tarchivo segun la extencion.
+	*
+	* @param string $input->extencion el usuario a buscar
+	* @return int resquery->error que es 0 cuando no existe un error
+	*		  matriz resquery->matriz que contiene el resultado de la consulta
+	*/
+	public function buscartarchivoextencion($input) {
+		$this->conexion();
+		$response = $this->mostrar("select a.tan, a.tatipo, a.taextenciones from tarchivo".
+		                           " a where a.taextenciones like '%".$input->extencion."%'");
+		$this->desconexion();
+		return $response;
+	}
+
+	/**
+	* Esta funcion inserta un archivo en la tabla archivo.
+	*
+	* @param date $input->fecha fecha depublicacion del archivo
+	* @param string $input->titular titular de la nota
+	* @param int $input->protagonista protagonista de la nota
+	* @param string $input->resumen resumen de la nota del boletin
+	* @param int $input->programa programa de emicion de la nota
+	* @param int $input->ciudad ciudad donde se produjo la nota
+	* @param int $input->clacificacion clasificacion de la nota
+	* @param int $input->usuarioactualizacion usuario que modifica la nota
+	* @param datetime $input->fechaactualizacion fecha en la que se actualiza la nota
+	* @param int $input->vistas vistas de la nota
+	* @param int $input->usuariocargado usuario que carga la nota
+	* @param datetime $input->fechacargado fecha en la que se carga el archivo
+	* @param string $input->direccion dirrecion fisica del archivo
+	* @param int $input->espacio espacio de la nota
+	* @param int $input->tipo tipo del archivo
 	* @return int res->res que es 0 cuando no existe un error
 	*
 	*/
-	/*public function registrarprospecto($input) {
+	public function insertararchivo($input) {
 		$this->conexion();
 		$response = new res();
-		if ($this->ejecutarquery("insert into prospecto values('','".$input->nombre."','".$input->apellido."','".
-		    $input->email."',".$input->cuidad.", '".$input->fecha."')"INSERT INTO protagonista(pprotagonista)VALUES ('TUTO QUIROGA');)) {
+		if ($this->ejecutarquery("insert into archivo(afecha, atitular, aprotagonista, aresumen, aprograma, aciudad,".
+		    " aclasificacion, ausuarioactualizacion, afechaactualizacion, avistas, ausuariocargado,".
+		    " afechacargado, adireccion, aespacio, atipo) values('".$input->fecha."','".$input->titular."',".
+		    $input->protagonista.",'".$input->resumen."',"$input->programa",".$input->ciudad.",".$input->clasificacion.
+		    ",".$input->usuarioactualizacion.",'".$input->fechaactualizacion."',".$input->vistas.",".
+		    $input->usuariocargado.",'".$input->fechacargado."','".$input->dirrecion."',".$input->espacio.",".
+		    $input->tipo.")")) {
 			$response->res = 0;
 		} else {
 			$response->res = 1;
 		}
 		$this->desconexion();
 		return $response;
-	}*/
+	}
 
 }
 $server = new SoapServer($dbsdir."/wsdl/db.wsdl");

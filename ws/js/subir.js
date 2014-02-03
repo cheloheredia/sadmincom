@@ -121,6 +121,29 @@ $(function()
         focus: itemMarcado
     });
     cargarCombos('clasificacion');
+    $('#enviar').click(function(){
+        var archivos = $('#archivo');
+        var archivo = archivos[0].files[0];
+        var datos = new FormData();
+        datos.append('archivo',archivo);
+        var url = clientesubir;
+        $.ajax({
+            url:url,
+            type:'POST',
+            contentType:false,
+            data:datos,
+            processData:false,
+            cache:false,
+            beforeSend: function(){
+                $("#archivo").prop('disabled', true);
+                $("#enviar").prop('disabled', true);
+                $("#respuesta").html($('<br><span class="mensaje">Subiendo archivo...</span><br>'));
+            },
+            success: function(data){
+                $("#respuesta").html($('<br><span class="mensaje">'+data+'</span><br>'));
+            }
+        });
+    });
     /*var $_GET = obtenerVariablesGet(document.location.search);
     if (typeof($_GET['revista']) != "undefined" && $_GET['revista'] !== null) {
         $("#revista").val($_GET['revista']);

@@ -11,6 +11,11 @@ class cargarcombohorarioentradas {
      */
     public $programa;
 
+    /**
+     * @var string
+     */
+    public $medio;
+
 }
 
 class cargarcombohorariosalidas {

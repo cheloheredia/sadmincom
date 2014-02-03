@@ -18,6 +18,11 @@ var cargarcombos = 'client/combos.php';
  */
 var clienteprospecto = 'client/clienteprospecto.php';
 
+/*
+ * @var string
+ */
+var clientesubir = 'client/subir.php';
+
 function esEmail(email) {
     var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if(!regex.test(email)) {
@@ -110,7 +115,8 @@ function cargarCombos(combo){
             break;
         case 'horario':
             $("#horario").append("<option></option>");
-            $.getJSON(cargarcombos+'?combo='+combo+'&programa='+$('#programa').val(),function(data){
+            $.getJSON(cargarcombos+'?combo='+combo+'&programa='+$('#programa').val()+'&medio='+
+                      $('#medio').val(),function(data){
                 $.each(data, function(k,v){
                     $("#horario").append("<option>"+v+"</option>");
                 });

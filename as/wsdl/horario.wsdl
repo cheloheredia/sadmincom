@@ -13,8 +13,9 @@
 
       <xsd:complexType name="cargarcombohorarioentradas">
       	<xsd:attribute name="programa" type="xsd:string"></xsd:attribute>
+      	<xsd:attribute name="medio" type="xsd:string"></xsd:attribute>
       </xsd:complexType>
-    
+
       <xsd:complexType name="cargarcombohorariosalidas">
       	<xsd:sequence>
       		<xsd:element name="horario" type="xsd:string"

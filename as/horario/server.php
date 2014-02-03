@@ -38,16 +38,35 @@ class horario {
 		switch ($resdbs->error) {
 			case 0:
 				$idprograma = $resdbs->matriz[0]->columnas[0];
-				$resdbs = $this->clientdbs->buscarhorarioprograma(array('programa' => $idprograma));
+				$resdbs = $this->clientdbs->buscarmedio(array('medio' => $input->medio));
 				switch ($resdbs->error) {
 					case 0:
-						$res->error = 'OK';
-						for ($i = 0; $i < sizeof($resdbs->matriz); $i++) {
-							$res->horario[$i] = $resdbs->matriz[$i]->columnas[1];
+						$idmedio = $resdbs->matriz[0]->columnas[0];
+						$resdbs = $this->clientdbs->buscarhorarioprograma(array('programa' => $idprograma));
+						switch ($resdbs->error) {
+							case 0:
+								$res->error = 'OK';
+								$aux = 0;
+								for ($i = 0; $i < sizeof($resdbs->matriz); $i++) {
+									if ($resdbs->matriz[$i]->columnas[2] == $idmedio) {
+										$res->horario[$aux] = $resdbs->matriz[$i]->columnas[1];
+										$aux++;
+									}
+								}
+								break;
+							case 1:
+								$res->error = 'No hay horarios';
+								break;
+							case -1:
+								$res->error = 'Error favor volver a intentar';
+								break;
+							default:
+								$res->error = 'Error inesperado';
+								break;
 						}
 						break;
 					case 1:
-						$res->error = 'No hay coincidencias';
+						$res->error = 'El medio es incorrecto';
 						break;
 					case -1:
 						$res->error = 'Error favor volver a intentar';
